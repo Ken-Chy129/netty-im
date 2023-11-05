@@ -17,4 +17,43 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <!--proto文件路径-->
+                    <protoSourceRoot>proto</protoSourceRoot>
+                    <!--目标路径-->
+                    <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+                    <!--设置是否在生成Java文件之前清空outputDirectory的文件-->
+                    <clearOutputDirectory>false</clearOutputDirectory>
+                    <!--临时目录-->
+                    <temporaryProtoFileDirectory>${project.build.directory}/protoc-temp</temporaryProtoFileDirectory>
+                    <!--protoc可执行文件路径-->
+                    <protocExecutable>${project.basedir}/proto/protobin/protoc.exe</protocExecutable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <dependencies>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.9</version>
+        </dependency>
+    </dependencies>
+    
 </project>
