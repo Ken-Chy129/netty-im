@@ -3,6 +3,9 @@ package cn.ken.im.bean;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * <pre>
  *
@@ -16,11 +19,21 @@ import lombok.extern.slf4j.Slf4j;
 public class UserDTO {
 
     String userId;
-    String userName;
     String devId;
-    String token;
-    String nickName = "nickName";
+    String password;
+    String nickName;
     PlatformType platform = PlatformType.WINDOWS;
+
+    public UserDTO() {
+        this.devId = "1111";
+        this.nickName = "test";
+    }
+
+    public UserDTO(String userId, String password) {
+        this();
+        this.userId = userId;
+        this.password = password;
+    }
 
     // windows,mac,android, ios, web , other
     public enum PlatformType {
@@ -28,7 +41,6 @@ public class UserDTO {
     }
 
     private String sessionId;
-
 
     public void setPlatform(int platform) {
         PlatformType[] values = PlatformType.values();
@@ -40,26 +52,13 @@ public class UserDTO {
 
     }
     
-    @Override
-    public String toString() {
-        return "User{" +
-                "uid='" + userId + '\'' +
-                ", devId='" + devId + '\'' +
-                ", token='" + token + '\'' +
-                ", nickName='" + nickName + '\'' +
-                ", platform=" + platform +
-                '}';
-    }
-
     public static UserDTO fromMsg(MessageProtos.LoginRequest info) {
         UserDTO user = new UserDTO();
         user.userId = info.getUid();
         user.devId = info.getDeviceId();
-        user.token = info.getToken();
+        user.password = info.getPassword();
         user.setPlatform(info.getPlatform());
-        log.info("user:{}", user);
         return user;
-
     }
 
 }

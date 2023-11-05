@@ -303,23 +303,23 @@ public final class MessageProtos {
 
     /**
      * <pre>
-     * 用户token
+     * 用户密码
      * </pre>
      *
-     * <code>string token = 3;</code>
-     * @return The token.
+     * <code>string password = 3;</code>
+     * @return The password.
      */
-    java.lang.String getToken();
+    java.lang.String getPassword();
     /**
      * <pre>
-     * 用户token
+     * 用户密码
      * </pre>
      *
-     * <code>string token = 3;</code>
-     * @return The bytes for token.
+     * <code>string password = 3;</code>
+     * @return The bytes for password.
      */
     com.google.protobuf.ByteString
-        getTokenBytes();
+        getPasswordBytes();
 
     /**
      * <pre>
@@ -370,7 +370,7 @@ public final class MessageProtos {
     private LoginRequest() {
       uid_ = "";
       deviceId_ = "";
-      token_ = "";
+      password_ = "";
       appVersion_ = "";
     }
 
@@ -419,7 +419,7 @@ public final class MessageProtos {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              token_ = s;
+              password_ = s;
               break;
             }
             case 32: {
@@ -559,46 +559,46 @@ public final class MessageProtos {
       }
     }
 
-    public static final int TOKEN_FIELD_NUMBER = 3;
-    private volatile java.lang.Object token_;
+    public static final int PASSWORD_FIELD_NUMBER = 3;
+    private volatile java.lang.Object password_;
     /**
      * <pre>
-     * 用户token
+     * 用户密码
      * </pre>
      *
-     * <code>string token = 3;</code>
-     * @return The token.
+     * <code>string password = 3;</code>
+     * @return The password.
      */
     @java.lang.Override
-    public java.lang.String getToken() {
-      java.lang.Object ref = token_;
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        token_ = s;
+        password_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * 用户token
+     * 用户密码
      * </pre>
      *
-     * <code>string token = 3;</code>
-     * @return The bytes for token.
+     * <code>string password = 3;</code>
+     * @return The bytes for password.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getTokenBytes() {
-      java.lang.Object ref = token_;
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        token_ = b;
+        password_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -686,8 +686,8 @@ public final class MessageProtos {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, deviceId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, token_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, password_);
       }
       if (platform_ != 0) {
         output.writeUInt32(4, platform_);
@@ -710,8 +710,8 @@ public final class MessageProtos {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, deviceId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, token_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, password_);
       }
       if (platform_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -739,8 +739,8 @@ public final class MessageProtos {
           .equals(other.getUid())) return false;
       if (!getDeviceId()
           .equals(other.getDeviceId())) return false;
-      if (!getToken()
-          .equals(other.getToken())) return false;
+      if (!getPassword()
+          .equals(other.getPassword())) return false;
       if (getPlatform()
           != other.getPlatform()) return false;
       if (!getAppVersion()
@@ -760,8 +760,8 @@ public final class MessageProtos {
       hash = (53 * hash) + getUid().hashCode();
       hash = (37 * hash) + DEVICEID_FIELD_NUMBER;
       hash = (53 * hash) + getDeviceId().hashCode();
-      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
-      hash = (53 * hash) + getToken().hashCode();
+      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getPassword().hashCode();
       hash = (37 * hash) + PLATFORM_FIELD_NUMBER;
       hash = (53 * hash) + getPlatform();
       hash = (37 * hash) + APPVERSION_FIELD_NUMBER;
@@ -907,7 +907,7 @@ public final class MessageProtos {
 
         deviceId_ = "";
 
-        token_ = "";
+        password_ = "";
 
         platform_ = 0;
 
@@ -941,7 +941,7 @@ public final class MessageProtos {
         cn.ken.im.bean.MessageProtos.LoginRequest result = new cn.ken.im.bean.MessageProtos.LoginRequest(this);
         result.uid_ = uid_;
         result.deviceId_ = deviceId_;
-        result.token_ = token_;
+        result.password_ = password_;
         result.platform_ = platform_;
         result.appVersion_ = appVersion_;
         onBuilt();
@@ -1000,8 +1000,8 @@ public final class MessageProtos {
           deviceId_ = other.deviceId_;
           onChanged();
         }
-        if (!other.getToken().isEmpty()) {
-          token_ = other.token_;
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
           onChanged();
         }
         if (other.getPlatform() != 0) {
@@ -1232,22 +1232,22 @@ public final class MessageProtos {
         return this;
       }
 
-      private java.lang.Object token_ = "";
+      private java.lang.Object password_ = "";
       /**
        * <pre>
-       * 用户token
+       * 用户密码
        * </pre>
        *
-       * <code>string token = 3;</code>
-       * @return The token.
+       * <code>string password = 3;</code>
+       * @return The password.
        */
-      public java.lang.String getToken() {
-        java.lang.Object ref = token_;
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          token_ = s;
+          password_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1255,20 +1255,20 @@ public final class MessageProtos {
       }
       /**
        * <pre>
-       * 用户token
+       * 用户密码
        * </pre>
        *
-       * <code>string token = 3;</code>
-       * @return The bytes for token.
+       * <code>string password = 3;</code>
+       * @return The bytes for password.
        */
       public com.google.protobuf.ByteString
-          getTokenBytes() {
-        java.lang.Object ref = token_;
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          token_ = b;
+          password_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -1276,54 +1276,54 @@ public final class MessageProtos {
       }
       /**
        * <pre>
-       * 用户token
+       * 用户密码
        * </pre>
        *
-       * <code>string token = 3;</code>
-       * @param value The token to set.
+       * <code>string password = 3;</code>
+       * @param value The password to set.
        * @return This builder for chaining.
        */
-      public Builder setToken(
+      public Builder setPassword(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        token_ = value;
+        password_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 用户token
+       * 用户密码
        * </pre>
        *
-       * <code>string token = 3;</code>
+       * <code>string password = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearToken() {
+      public Builder clearPassword() {
         
-        token_ = getDefaultInstance().getToken();
+        password_ = getDefaultInstance().getPassword();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 用户token
+       * 用户密码
        * </pre>
        *
-       * <code>string token = 3;</code>
-       * @param value The bytes for token to set.
+       * <code>string password = 3;</code>
+       * @param value The bytes for password to set.
        * @return This builder for chaining.
        */
-      public Builder setTokenBytes(
+      public Builder setPasswordBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        token_ = value;
+        password_ = value;
         onChanged();
         return this;
       }
@@ -2413,7 +2413,7 @@ public final class MessageProtos {
      * 消息id
      * </pre>
      *
-     * <code>uint64 msg_id = 1;</code>
+     * <code>uint64 msgId = 1;</code>
      * @return The msgId.
      */
     long getMsgId();
@@ -2470,10 +2470,10 @@ public final class MessageProtos {
 
     /**
      * <pre>
-     *消息类型  1：纯文本 2：音频 3：视频 4：地理位置 5：其他
+     * 消息类型  1：纯文本 2：音频 3：视频 4：地理位置 5：其他
      * </pre>
      *
-     * <code>uint32 msg_type = 5;</code>
+     * <code>uint32 msgType = 5;</code>
      * @return The msgType.
      */
     int getMsgType();
@@ -2543,7 +2543,7 @@ public final class MessageProtos {
      * 发送者昵称
      * </pre>
      *
-     * <code>string from_nick = 9;</code>
+     * <code>string fromNick = 9;</code>
      * @return The fromNick.
      */
     java.lang.String getFromNick();
@@ -2552,7 +2552,7 @@ public final class MessageProtos {
      * 发送者昵称
      * </pre>
      *
-     * <code>string from_nick = 9;</code>
+     * <code>string fromNick = 9;</code>
      * @return The bytes for fromNick.
      */
     com.google.protobuf.ByteString
@@ -2736,14 +2736,14 @@ public final class MessageProtos {
     }
 
     private int bitField0_;
-    public static final int MSG_ID_FIELD_NUMBER = 1;
+    public static final int MSGID_FIELD_NUMBER = 1;
     private long msgId_;
     /**
      * <pre>
      * 消息id
      * </pre>
      *
-     * <code>uint64 msg_id = 1;</code>
+     * <code>uint64 msgId = 1;</code>
      * @return The msgId.
      */
     @java.lang.Override
@@ -2858,14 +2858,14 @@ public final class MessageProtos {
       return time_;
     }
 
-    public static final int MSG_TYPE_FIELD_NUMBER = 5;
+    public static final int MSGTYPE_FIELD_NUMBER = 5;
     private int msgType_;
     /**
      * <pre>
-     *消息类型  1：纯文本 2：音频 3：视频 4：地理位置 5：其他
+     * 消息类型  1：纯文本 2：音频 3：视频 4：地理位置 5：其他
      * </pre>
      *
-     * <code>uint32 msg_type = 5;</code>
+     * <code>uint32 msgType = 5;</code>
      * @return The msgType.
      */
     @java.lang.Override
@@ -3011,14 +3011,14 @@ public final class MessageProtos {
       }
     }
 
-    public static final int FROM_NICK_FIELD_NUMBER = 9;
+    public static final int FROMNICK_FIELD_NUMBER = 9;
     private volatile java.lang.Object fromNick_;
     /**
      * <pre>
      * 发送者昵称
      * </pre>
      *
-     * <code>string from_nick = 9;</code>
+     * <code>string fromNick = 9;</code>
      * @return The fromNick.
      */
     @java.lang.Override
@@ -3039,7 +3039,7 @@ public final class MessageProtos {
      * 发送者昵称
      * </pre>
      *
-     * <code>string from_nick = 9;</code>
+     * <code>string fromNick = 9;</code>
      * @return The bytes for fromNick.
      */
     @java.lang.Override
@@ -3250,7 +3250,7 @@ public final class MessageProtos {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + MSG_ID_FIELD_NUMBER;
+      hash = (37 * hash) + MSGID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMsgId());
       hash = (37 * hash) + FROM_FIELD_NUMBER;
@@ -3260,7 +3260,7 @@ public final class MessageProtos {
       hash = (37 * hash) + TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTime());
-      hash = (37 * hash) + MSG_TYPE_FIELD_NUMBER;
+      hash = (37 * hash) + MSGTYPE_FIELD_NUMBER;
       hash = (53 * hash) + getMsgType();
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
@@ -3268,7 +3268,7 @@ public final class MessageProtos {
       hash = (53 * hash) + getUrl().hashCode();
       hash = (37 * hash) + PROPERTY_FIELD_NUMBER;
       hash = (53 * hash) + getProperty().hashCode();
-      hash = (37 * hash) + FROM_NICK_FIELD_NUMBER;
+      hash = (37 * hash) + FROMNICK_FIELD_NUMBER;
       hash = (53 * hash) + getFromNick().hashCode();
       if (hasJson()) {
         hash = (37 * hash) + JSON_FIELD_NUMBER;
@@ -3595,7 +3595,7 @@ public final class MessageProtos {
        * 消息id
        * </pre>
        *
-       * <code>uint64 msg_id = 1;</code>
+       * <code>uint64 msgId = 1;</code>
        * @return The msgId.
        */
       @java.lang.Override
@@ -3607,7 +3607,7 @@ public final class MessageProtos {
        * 消息id
        * </pre>
        *
-       * <code>uint64 msg_id = 1;</code>
+       * <code>uint64 msgId = 1;</code>
        * @param value The msgId to set.
        * @return This builder for chaining.
        */
@@ -3622,7 +3622,7 @@ public final class MessageProtos {
        * 消息id
        * </pre>
        *
-       * <code>uint64 msg_id = 1;</code>
+       * <code>uint64 msgId = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearMsgId() {
@@ -3870,10 +3870,10 @@ public final class MessageProtos {
       private int msgType_ ;
       /**
        * <pre>
-       *消息类型  1：纯文本 2：音频 3：视频 4：地理位置 5：其他
+       * 消息类型  1：纯文本 2：音频 3：视频 4：地理位置 5：其他
        * </pre>
        *
-       * <code>uint32 msg_type = 5;</code>
+       * <code>uint32 msgType = 5;</code>
        * @return The msgType.
        */
       @java.lang.Override
@@ -3882,10 +3882,10 @@ public final class MessageProtos {
       }
       /**
        * <pre>
-       *消息类型  1：纯文本 2：音频 3：视频 4：地理位置 5：其他
+       * 消息类型  1：纯文本 2：音频 3：视频 4：地理位置 5：其他
        * </pre>
        *
-       * <code>uint32 msg_type = 5;</code>
+       * <code>uint32 msgType = 5;</code>
        * @param value The msgType to set.
        * @return This builder for chaining.
        */
@@ -3897,10 +3897,10 @@ public final class MessageProtos {
       }
       /**
        * <pre>
-       *消息类型  1：纯文本 2：音频 3：视频 4：地理位置 5：其他
+       * 消息类型  1：纯文本 2：音频 3：视频 4：地理位置 5：其他
        * </pre>
        *
-       * <code>uint32 msg_type = 5;</code>
+       * <code>uint32 msgType = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearMsgType() {
@@ -4204,7 +4204,7 @@ public final class MessageProtos {
        * 发送者昵称
        * </pre>
        *
-       * <code>string from_nick = 9;</code>
+       * <code>string fromNick = 9;</code>
        * @return The fromNick.
        */
       public java.lang.String getFromNick() {
@@ -4224,7 +4224,7 @@ public final class MessageProtos {
        * 发送者昵称
        * </pre>
        *
-       * <code>string from_nick = 9;</code>
+       * <code>string fromNick = 9;</code>
        * @return The bytes for fromNick.
        */
       public com.google.protobuf.ByteString
@@ -4245,7 +4245,7 @@ public final class MessageProtos {
        * 发送者昵称
        * </pre>
        *
-       * <code>string from_nick = 9;</code>
+       * <code>string fromNick = 9;</code>
        * @param value The fromNick to set.
        * @return This builder for chaining.
        */
@@ -4264,7 +4264,7 @@ public final class MessageProtos {
        * 发送者昵称
        * </pre>
        *
-       * <code>string from_nick = 9;</code>
+       * <code>string fromNick = 9;</code>
        * @return This builder for chaining.
        */
       public Builder clearFromNick() {
@@ -4278,7 +4278,7 @@ public final class MessageProtos {
        * 发送者昵称
        * </pre>
        *
-       * <code>string from_nick = 9;</code>
+       * <code>string fromNick = 9;</code>
        * @param value The bytes for fromNick to set.
        * @return This builder for chaining.
        */
@@ -4508,13 +4508,21 @@ public final class MessageProtos {
     int getExpose();
 
     /**
-     * <code>bool last_block = 5;</code>
+     * <pre>
+     * 是否作为最后的应答
+     * </pre>
+     *
+     * <code>bool lastBlock = 5;</code>
      * @return The lastBlock.
      */
     boolean getLastBlock();
 
     /**
-     * <code>fixed32 block_index = 6;</code>
+     * <pre>
+     * 应答的序号
+     * </pre>
+     *
+     * <code>fixed32 blockIndex = 6;</code>
      * @return The blockIndex.
      */
     int getBlockIndex();
@@ -4725,10 +4733,14 @@ public final class MessageProtos {
       return expose_;
     }
 
-    public static final int LAST_BLOCK_FIELD_NUMBER = 5;
+    public static final int LASTBLOCK_FIELD_NUMBER = 5;
     private boolean lastBlock_;
     /**
-     * <code>bool last_block = 5;</code>
+     * <pre>
+     * 是否作为最后的应答
+     * </pre>
+     *
+     * <code>bool lastBlock = 5;</code>
      * @return The lastBlock.
      */
     @java.lang.Override
@@ -4736,10 +4748,14 @@ public final class MessageProtos {
       return lastBlock_;
     }
 
-    public static final int BLOCK_INDEX_FIELD_NUMBER = 6;
+    public static final int BLOCKINDEX_FIELD_NUMBER = 6;
     private int blockIndex_;
     /**
-     * <code>fixed32 block_index = 6;</code>
+     * <pre>
+     * 应答的序号
+     * </pre>
+     *
+     * <code>fixed32 blockIndex = 6;</code>
      * @return The blockIndex.
      */
     @java.lang.Override
@@ -4858,10 +4874,10 @@ public final class MessageProtos {
       hash = (53 * hash) + getInfo().hashCode();
       hash = (37 * hash) + EXPOSE_FIELD_NUMBER;
       hash = (53 * hash) + getExpose();
-      hash = (37 * hash) + LAST_BLOCK_FIELD_NUMBER;
+      hash = (37 * hash) + LASTBLOCK_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getLastBlock());
-      hash = (37 * hash) + BLOCK_INDEX_FIELD_NUMBER;
+      hash = (37 * hash) + BLOCKINDEX_FIELD_NUMBER;
       hash = (53 * hash) + getBlockIndex();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5367,7 +5383,11 @@ public final class MessageProtos {
 
       private boolean lastBlock_ ;
       /**
-       * <code>bool last_block = 5;</code>
+       * <pre>
+       * 是否作为最后的应答
+       * </pre>
+       *
+       * <code>bool lastBlock = 5;</code>
        * @return The lastBlock.
        */
       @java.lang.Override
@@ -5375,7 +5395,11 @@ public final class MessageProtos {
         return lastBlock_;
       }
       /**
-       * <code>bool last_block = 5;</code>
+       * <pre>
+       * 是否作为最后的应答
+       * </pre>
+       *
+       * <code>bool lastBlock = 5;</code>
        * @param value The lastBlock to set.
        * @return This builder for chaining.
        */
@@ -5386,7 +5410,11 @@ public final class MessageProtos {
         return this;
       }
       /**
-       * <code>bool last_block = 5;</code>
+       * <pre>
+       * 是否作为最后的应答
+       * </pre>
+       *
+       * <code>bool lastBlock = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearLastBlock() {
@@ -5398,7 +5426,11 @@ public final class MessageProtos {
 
       private int blockIndex_ ;
       /**
-       * <code>fixed32 block_index = 6;</code>
+       * <pre>
+       * 应答的序号
+       * </pre>
+       *
+       * <code>fixed32 blockIndex = 6;</code>
        * @return The blockIndex.
        */
       @java.lang.Override
@@ -5406,7 +5438,11 @@ public final class MessageProtos {
         return blockIndex_;
       }
       /**
-       * <code>fixed32 block_index = 6;</code>
+       * <pre>
+       * 应答的序号
+       * </pre>
+       *
+       * <code>fixed32 blockIndex = 6;</code>
        * @param value The blockIndex to set.
        * @return This builder for chaining.
        */
@@ -5417,7 +5453,11 @@ public final class MessageProtos {
         return this;
       }
       /**
-       * <code>fixed32 block_index = 6;</code>
+       * <pre>
+       * 应答的序号
+       * </pre>
+       *
+       * <code>fixed32 blockIndex = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearBlockIndex() {
@@ -5485,10 +5525,10 @@ public final class MessageProtos {
 
     /**
      * <pre>
-     *通知类型 1 上线 2 下线 ...
+     * 通知类型 1 上线 2 下线 ...
      * </pre>
      *
-     * <code>uint32 msg_type = 1;</code>
+     * <code>uint32 msgType = 1;</code>
      * @return The msgType.
      */
     int getMsgType();
@@ -5631,14 +5671,14 @@ public final class MessageProtos {
               cn.ken.im.bean.MessageProtos.MessageNotification.class, cn.ken.im.bean.MessageProtos.MessageNotification.Builder.class);
     }
 
-    public static final int MSG_TYPE_FIELD_NUMBER = 1;
+    public static final int MSGTYPE_FIELD_NUMBER = 1;
     private int msgType_;
     /**
      * <pre>
-     *通知类型 1 上线 2 下线 ...
+     * 通知类型 1 上线 2 下线 ...
      * </pre>
      *
-     * <code>uint32 msg_type = 1;</code>
+     * <code>uint32 msgType = 1;</code>
      * @return The msgType.
      */
     @java.lang.Override
@@ -5816,7 +5856,7 @@ public final class MessageProtos {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + MSG_TYPE_FIELD_NUMBER;
+      hash = (37 * hash) + MSGTYPE_FIELD_NUMBER;
       hash = (53 * hash) + getMsgType();
       hash = (37 * hash) + SENDER_FIELD_NUMBER;
       hash = (53 * hash) + getSender().hashCode();
@@ -6093,10 +6133,10 @@ public final class MessageProtos {
       private int msgType_ ;
       /**
        * <pre>
-       *通知类型 1 上线 2 下线 ...
+       * 通知类型 1 上线 2 下线 ...
        * </pre>
        *
-       * <code>uint32 msg_type = 1;</code>
+       * <code>uint32 msgType = 1;</code>
        * @return The msgType.
        */
       @java.lang.Override
@@ -6105,10 +6145,10 @@ public final class MessageProtos {
       }
       /**
        * <pre>
-       *通知类型 1 上线 2 下线 ...
+       * 通知类型 1 上线 2 下线 ...
        * </pre>
        *
-       * <code>uint32 msg_type = 1;</code>
+       * <code>uint32 msgType = 1;</code>
        * @param value The msgType to set.
        * @return This builder for chaining.
        */
@@ -6120,10 +6160,10 @@ public final class MessageProtos {
       }
       /**
        * <pre>
-       *通知类型 1 上线 2 下线 ...
+       * 通知类型 1 上线 2 下线 ...
        * </pre>
        *
-       * <code>uint32 msg_type = 1;</code>
+       * <code>uint32 msgType = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearMsgType() {
@@ -6405,12 +6445,12 @@ public final class MessageProtos {
     long getSequence();
 
     /**
-     * <code>string session_id = 3;</code>
+     * <code>string sessionId = 3;</code>
      * @return The sessionId.
      */
     java.lang.String getSessionId();
     /**
-     * <code>string session_id = 3;</code>
+     * <code>string sessionId = 3;</code>
      * @return The bytes for sessionId.
      */
     com.google.protobuf.ByteString
@@ -6703,10 +6743,10 @@ public final class MessageProtos {
       return sequence_;
     }
 
-    public static final int SESSION_ID_FIELD_NUMBER = 3;
+    public static final int SESSIONID_FIELD_NUMBER = 3;
     private volatile java.lang.Object sessionId_;
     /**
-     * <code>string session_id = 3;</code>
+     * <code>string sessionId = 3;</code>
      * @return The sessionId.
      */
     @java.lang.Override
@@ -6723,7 +6763,7 @@ public final class MessageProtos {
       }
     }
     /**
-     * <code>string session_id = 3;</code>
+     * <code>string sessionId = 3;</code>
      * @return The bytes for sessionId.
      */
     @java.lang.Override
@@ -7010,7 +7050,7 @@ public final class MessageProtos {
       hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSequence());
-      hash = (37 * hash) + SESSION_ID_FIELD_NUMBER;
+      hash = (37 * hash) + SESSIONID_FIELD_NUMBER;
       hash = (53 * hash) + getSessionId().hashCode();
       if (hasLoginRequest()) {
         hash = (37 * hash) + LOGINREQUEST_FIELD_NUMBER;
@@ -7505,7 +7545,7 @@ public final class MessageProtos {
 
       private java.lang.Object sessionId_ = "";
       /**
-       * <code>string session_id = 3;</code>
+       * <code>string sessionId = 3;</code>
        * @return The sessionId.
        */
       public java.lang.String getSessionId() {
@@ -7521,7 +7561,7 @@ public final class MessageProtos {
         }
       }
       /**
-       * <code>string session_id = 3;</code>
+       * <code>string sessionId = 3;</code>
        * @return The bytes for sessionId.
        */
       public com.google.protobuf.ByteString
@@ -7538,7 +7578,7 @@ public final class MessageProtos {
         }
       }
       /**
-       * <code>string session_id = 3;</code>
+       * <code>string sessionId = 3;</code>
        * @param value The sessionId to set.
        * @return This builder for chaining.
        */
@@ -7553,7 +7593,7 @@ public final class MessageProtos {
         return this;
       }
       /**
-       * <code>string session_id = 3;</code>
+       * <code>string sessionId = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearSessionId() {
@@ -7563,7 +7603,7 @@ public final class MessageProtos {
         return this;
       }
       /**
-       * <code>string session_id = 3;</code>
+       * <code>string sessionId = 3;</code>
        * @param value The bytes for sessionId to set.
        * @return This builder for chaining.
        */
@@ -8270,37 +8310,37 @@ public final class MessageProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rMessage.proto\"b\n\014LoginRequest\022\013\n\003uid\030\001" +
-      " \001(\t\022\020\n\010deviceId\030\002 \001(\t\022\r\n\005token\030\003 \001(\t\022\020\n" +
-      "\010platform\030\004 \001(\r\022\022\n\nappVersion\030\005 \001(\t\"K\n\rL" +
-      "oginResponse\022\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001" +
-      "(\r\022\014\n\004info\030\003 \001(\t\022\016\n\006expose\030\004 \001(\r\"\271\001\n\016Mes" +
-      "sageRequest\022\016\n\006msg_id\030\001 \001(\004\022\014\n\004from\030\002 \001(" +
-      "\t\022\n\n\002to\030\003 \001(\t\022\014\n\004time\030\004 \001(\004\022\020\n\010msg_type\030" +
-      "\005 \001(\r\022\017\n\007content\030\006 \001(\t\022\013\n\003url\030\007 \001(\t\022\020\n\010p" +
-      "roperty\030\010 \001(\t\022\021\n\tfrom_nick\030\t \001(\t\022\021\n\004json" +
-      "\030\n \001(\tH\000\210\001\001B\007\n\005_json\"v\n\017MessageResponse\022" +
+      "\n\rMessage.proto\"e\n\014LoginRequest\022\013\n\003uid\030\001" +
+      " \001(\t\022\020\n\010deviceId\030\002 \001(\t\022\020\n\010password\030\003 \001(\t" +
+      "\022\020\n\010platform\030\004 \001(\r\022\022\n\nappVersion\030\005 \001(\t\"K" +
+      "\n\rLoginResponse\022\016\n\006result\030\001 \001(\010\022\014\n\004code\030" +
+      "\002 \001(\r\022\014\n\004info\030\003 \001(\t\022\016\n\006expose\030\004 \001(\r\"\266\001\n\016" +
+      "MessageRequest\022\r\n\005msgId\030\001 \001(\004\022\014\n\004from\030\002 " +
+      "\001(\t\022\n\n\002to\030\003 \001(\t\022\014\n\004time\030\004 \001(\004\022\017\n\007msgType" +
+      "\030\005 \001(\r\022\017\n\007content\030\006 \001(\t\022\013\n\003url\030\007 \001(\t\022\020\n\010" +
+      "property\030\010 \001(\t\022\020\n\010fromNick\030\t \001(\t\022\021\n\004json" +
+      "\030\n \001(\tH\000\210\001\001B\007\n\005_json\"t\n\017MessageResponse\022" +
       "\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\014\n\004info\030\003 " +
-      "\001(\t\022\016\n\006expose\030\004 \001(\r\022\022\n\nlast_block\030\005 \001(\010\022" +
-      "\023\n\013block_index\030\006 \001(\007\"X\n\023MessageNotificat" +
-      "ion\022\020\n\010msg_type\030\001 \001(\r\022\016\n\006sender\030\002 \001(\014\022\014\n" +
-      "\004json\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(\t\"\210\003\n\007Messa" +
-      "ge\022\027\n\004type\030\001 \001(\0162\t.HeadType\022\020\n\010sequence\030" +
-      "\002 \001(\004\022\022\n\nsession_id\030\003 \001(\t\022(\n\014loginReques" +
-      "t\030\004 \001(\0132\r.LoginRequestH\000\210\001\001\022*\n\rloginResp" +
-      "onse\030\005 \001(\0132\016.LoginResponseH\001\210\001\001\022,\n\016messa" +
-      "geRequest\030\006 \001(\0132\017.MessageRequestH\002\210\001\001\022.\n" +
-      "\017messageResponse\030\007 \001(\0132\020.MessageResponse" +
-      "H\003\210\001\001\022/\n\014notification\030\010 \001(\0132\024.MessageNot" +
-      "ificationH\004\210\001\001B\017\n\r_loginRequestB\020\n\016_logi" +
-      "nResponseB\021\n\017_messageRequestB\022\n\020_message" +
-      "ResponseB\017\n\r_notification*\316\001\n\010HeadType\022\021" +
-      "\n\rLOGIN_REQUEST\020\000\022\022\n\016LOGIN_RESPONSE\020\001\022\022\n" +
-      "\016LOGOUT_REQUEST\020\002\022\023\n\017LOGOUT_RESPONSE\020\003\022\025" +
-      "\n\021KEEPALIVE_REQUEST\020\004\022\026\n\022KEEPALIVE_RESPO" +
-      "NSE\020\005\022\023\n\017MESSAGE_REQUEST\020\006\022\024\n\020MESSAGE_RE" +
-      "SPONSE\020\007\022\030\n\024MESSAGE_NOTIFICATION\020\010B\037\n\016cn" +
-      ".ken.im.beanB\rMessageProtosb\006proto3"
+      "\001(\t\022\016\n\006expose\030\004 \001(\r\022\021\n\tlastBlock\030\005 \001(\010\022\022" +
+      "\n\nblockIndex\030\006 \001(\007\"W\n\023MessageNotificatio" +
+      "n\022\017\n\007msgType\030\001 \001(\r\022\016\n\006sender\030\002 \001(\014\022\014\n\004js" +
+      "on\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(\t\"\207\003\n\007Message\022" +
+      "\027\n\004type\030\001 \001(\0162\t.HeadType\022\020\n\010sequence\030\002 \001" +
+      "(\004\022\021\n\tsessionId\030\003 \001(\t\022(\n\014loginRequest\030\004 " +
+      "\001(\0132\r.LoginRequestH\000\210\001\001\022*\n\rloginResponse" +
+      "\030\005 \001(\0132\016.LoginResponseH\001\210\001\001\022,\n\016messageRe" +
+      "quest\030\006 \001(\0132\017.MessageRequestH\002\210\001\001\022.\n\017mes" +
+      "sageResponse\030\007 \001(\0132\020.MessageResponseH\003\210\001" +
+      "\001\022/\n\014notification\030\010 \001(\0132\024.MessageNotific" +
+      "ationH\004\210\001\001B\017\n\r_loginRequestB\020\n\016_loginRes" +
+      "ponseB\021\n\017_messageRequestB\022\n\020_messageResp" +
+      "onseB\017\n\r_notification*\316\001\n\010HeadType\022\021\n\rLO" +
+      "GIN_REQUEST\020\000\022\022\n\016LOGIN_RESPONSE\020\001\022\022\n\016LOG" +
+      "OUT_REQUEST\020\002\022\023\n\017LOGOUT_RESPONSE\020\003\022\025\n\021KE" +
+      "EPALIVE_REQUEST\020\004\022\026\n\022KEEPALIVE_RESPONSE\020" +
+      "\005\022\023\n\017MESSAGE_REQUEST\020\006\022\024\n\020MESSAGE_RESPON" +
+      "SE\020\007\022\030\n\024MESSAGE_NOTIFICATION\020\010B\037\n\016cn.ken" +
+      ".im.beanB\rMessageProtosb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8311,7 +8351,7 @@ public final class MessageProtos {
     internal_static_LoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LoginRequest_descriptor,
-        new java.lang.String[] { "Uid", "DeviceId", "Token", "Platform", "AppVersion", });
+        new java.lang.String[] { "Uid", "DeviceId", "Password", "Platform", "AppVersion", });
     internal_static_LoginResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_LoginResponse_fieldAccessorTable = new
