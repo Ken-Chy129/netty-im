@@ -53,20 +53,12 @@ public final class MessageProtos {
     LOGOUT_RESPONSE(3),
     /**
      * <pre>
-     * 心跳请求
+     * 心跳报文
      * </pre>
      *
-     * <code>KEEPALIVE_REQUEST = 4;</code>
+     * <code>HEART_BEAT = 4;</code>
      */
-    KEEPALIVE_REQUEST(4),
-    /**
-     * <pre>
-     * 心跳响应
-     * </pre>
-     *
-     * <code>KEEPALIVE_RESPONSE = 5;</code>
-     */
-    KEEPALIVE_RESPONSE(5),
+    HEART_BEAT(4),
     /**
      * <pre>
      * 聊天消息请求
@@ -128,20 +120,12 @@ public final class MessageProtos {
     public static final int LOGOUT_RESPONSE_VALUE = 3;
     /**
      * <pre>
-     * 心跳请求
+     * 心跳报文
      * </pre>
      *
-     * <code>KEEPALIVE_REQUEST = 4;</code>
+     * <code>HEART_BEAT = 4;</code>
      */
-    public static final int KEEPALIVE_REQUEST_VALUE = 4;
-    /**
-     * <pre>
-     * 心跳响应
-     * </pre>
-     *
-     * <code>KEEPALIVE_RESPONSE = 5;</code>
-     */
-    public static final int KEEPALIVE_RESPONSE_VALUE = 5;
+    public static final int HEART_BEAT_VALUE = 4;
     /**
      * <pre>
      * 聊天消息请求
@@ -196,8 +180,7 @@ public final class MessageProtos {
         case 1: return LOGIN_RESPONSE;
         case 2: return LOGOUT_REQUEST;
         case 3: return LOGOUT_RESPONSE;
-        case 4: return KEEPALIVE_REQUEST;
-        case 5: return KEEPALIVE_RESPONSE;
+        case 4: return HEART_BEAT;
         case 6: return MESSAGE_REQUEST;
         case 7: return MESSAGE_RESPONSE;
         case 8: return MESSAGE_NOTIFICATION;
@@ -5519,6 +5502,804 @@ public final class MessageProtos {
 
   }
 
+  public interface MessageHeartBeatOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:MessageHeartBeat)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint32 seq = 1;</code>
+     * @return The seq.
+     */
+    int getSeq();
+
+    /**
+     * <code>string uid = 2;</code>
+     * @return The uid.
+     */
+    java.lang.String getUid();
+    /**
+     * <code>string uid = 2;</code>
+     * @return The bytes for uid.
+     */
+    com.google.protobuf.ByteString
+        getUidBytes();
+
+    /**
+     * <code>string json = 3;</code>
+     * @return The json.
+     */
+    java.lang.String getJson();
+    /**
+     * <code>string json = 3;</code>
+     * @return The bytes for json.
+     */
+    com.google.protobuf.ByteString
+        getJsonBytes();
+  }
+  /**
+   * <pre>
+   *心跳
+   * </pre>
+   *
+   * Protobuf type {@code MessageHeartBeat}
+   */
+  public static final class MessageHeartBeat extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:MessageHeartBeat)
+      MessageHeartBeatOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MessageHeartBeat.newBuilder() to construct.
+    private MessageHeartBeat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MessageHeartBeat() {
+      uid_ = "";
+      json_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MessageHeartBeat();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MessageHeartBeat(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              seq_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              uid_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              json_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.ken.im.bean.MessageProtos.internal_static_MessageHeartBeat_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.ken.im.bean.MessageProtos.internal_static_MessageHeartBeat_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.ken.im.bean.MessageProtos.MessageHeartBeat.class, cn.ken.im.bean.MessageProtos.MessageHeartBeat.Builder.class);
+    }
+
+    public static final int SEQ_FIELD_NUMBER = 1;
+    private int seq_;
+    /**
+     * <code>uint32 seq = 1;</code>
+     * @return The seq.
+     */
+    @java.lang.Override
+    public int getSeq() {
+      return seq_;
+    }
+
+    public static final int UID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object uid_;
+    /**
+     * <code>string uid = 2;</code>
+     * @return The uid.
+     */
+    @java.lang.Override
+    public java.lang.String getUid() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string uid = 2;</code>
+     * @return The bytes for uid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUidBytes() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int JSON_FIELD_NUMBER = 3;
+    private volatile java.lang.Object json_;
+    /**
+     * <code>string json = 3;</code>
+     * @return The json.
+     */
+    @java.lang.Override
+    public java.lang.String getJson() {
+      java.lang.Object ref = json_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        json_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string json = 3;</code>
+     * @return The bytes for json.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getJsonBytes() {
+      java.lang.Object ref = json_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        json_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (seq_ != 0) {
+        output.writeUInt32(1, seq_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, uid_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, json_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (seq_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, seq_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, uid_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, json_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.ken.im.bean.MessageProtos.MessageHeartBeat)) {
+        return super.equals(obj);
+      }
+      cn.ken.im.bean.MessageProtos.MessageHeartBeat other = (cn.ken.im.bean.MessageProtos.MessageHeartBeat) obj;
+
+      if (getSeq()
+          != other.getSeq()) return false;
+      if (!getUid()
+          .equals(other.getUid())) return false;
+      if (!getJson()
+          .equals(other.getJson())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SEQ_FIELD_NUMBER;
+      hash = (53 * hash) + getSeq();
+      hash = (37 * hash) + UID_FIELD_NUMBER;
+      hash = (53 * hash) + getUid().hashCode();
+      hash = (37 * hash) + JSON_FIELD_NUMBER;
+      hash = (53 * hash) + getJson().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.ken.im.bean.MessageProtos.MessageHeartBeat prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *心跳
+     * </pre>
+     *
+     * Protobuf type {@code MessageHeartBeat}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:MessageHeartBeat)
+        cn.ken.im.bean.MessageProtos.MessageHeartBeatOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.ken.im.bean.MessageProtos.internal_static_MessageHeartBeat_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.ken.im.bean.MessageProtos.internal_static_MessageHeartBeat_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.ken.im.bean.MessageProtos.MessageHeartBeat.class, cn.ken.im.bean.MessageProtos.MessageHeartBeat.Builder.class);
+      }
+
+      // Construct using cn.ken.im.bean.MessageProtos.MessageHeartBeat.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        seq_ = 0;
+
+        uid_ = "";
+
+        json_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.ken.im.bean.MessageProtos.internal_static_MessageHeartBeat_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.ken.im.bean.MessageProtos.MessageHeartBeat getDefaultInstanceForType() {
+        return cn.ken.im.bean.MessageProtos.MessageHeartBeat.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.ken.im.bean.MessageProtos.MessageHeartBeat build() {
+        cn.ken.im.bean.MessageProtos.MessageHeartBeat result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.ken.im.bean.MessageProtos.MessageHeartBeat buildPartial() {
+        cn.ken.im.bean.MessageProtos.MessageHeartBeat result = new cn.ken.im.bean.MessageProtos.MessageHeartBeat(this);
+        result.seq_ = seq_;
+        result.uid_ = uid_;
+        result.json_ = json_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.ken.im.bean.MessageProtos.MessageHeartBeat) {
+          return mergeFrom((cn.ken.im.bean.MessageProtos.MessageHeartBeat)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.ken.im.bean.MessageProtos.MessageHeartBeat other) {
+        if (other == cn.ken.im.bean.MessageProtos.MessageHeartBeat.getDefaultInstance()) return this;
+        if (other.getSeq() != 0) {
+          setSeq(other.getSeq());
+        }
+        if (!other.getUid().isEmpty()) {
+          uid_ = other.uid_;
+          onChanged();
+        }
+        if (!other.getJson().isEmpty()) {
+          json_ = other.json_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cn.ken.im.bean.MessageProtos.MessageHeartBeat parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cn.ken.im.bean.MessageProtos.MessageHeartBeat) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int seq_ ;
+      /**
+       * <code>uint32 seq = 1;</code>
+       * @return The seq.
+       */
+      @java.lang.Override
+      public int getSeq() {
+        return seq_;
+      }
+      /**
+       * <code>uint32 seq = 1;</code>
+       * @param value The seq to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSeq(int value) {
+        
+        seq_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 seq = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSeq() {
+        
+        seq_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object uid_ = "";
+      /**
+       * <code>string uid = 2;</code>
+       * @return The uid.
+       */
+      public java.lang.String getUid() {
+        java.lang.Object ref = uid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string uid = 2;</code>
+       * @return The bytes for uid.
+       */
+      public com.google.protobuf.ByteString
+          getUidBytes() {
+        java.lang.Object ref = uid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string uid = 2;</code>
+       * @param value The uid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uid = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUid() {
+        
+        uid_ = getDefaultInstance().getUid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uid = 2;</code>
+       * @param value The bytes for uid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object json_ = "";
+      /**
+       * <code>string json = 3;</code>
+       * @return The json.
+       */
+      public java.lang.String getJson() {
+        java.lang.Object ref = json_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          json_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string json = 3;</code>
+       * @return The bytes for json.
+       */
+      public com.google.protobuf.ByteString
+          getJsonBytes() {
+        java.lang.Object ref = json_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          json_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string json = 3;</code>
+       * @param value The json to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJson(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        json_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string json = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearJson() {
+        
+        json_ = getDefaultInstance().getJson();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string json = 3;</code>
+       * @param value The bytes for json to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJsonBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        json_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:MessageHeartBeat)
+    }
+
+    // @@protoc_insertion_point(class_scope:MessageHeartBeat)
+    private static final cn.ken.im.bean.MessageProtos.MessageHeartBeat DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.ken.im.bean.MessageProtos.MessageHeartBeat();
+    }
+
+    public static cn.ken.im.bean.MessageProtos.MessageHeartBeat getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MessageHeartBeat>
+        PARSER = new com.google.protobuf.AbstractParser<MessageHeartBeat>() {
+      @java.lang.Override
+      public MessageHeartBeat parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MessageHeartBeat(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MessageHeartBeat> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MessageHeartBeat> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.ken.im.bean.MessageProtos.MessageHeartBeat getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface MessageNotificationOrBuilder extends
       // @@protoc_insertion_point(interface_extends:MessageNotification)
       com.google.protobuf.MessageOrBuilder {
@@ -8292,6 +9073,11 @@ public final class MessageProtos {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_MessageResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MessageHeartBeat_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MessageHeartBeat_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_MessageNotification_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -8322,25 +9108,26 @@ public final class MessageProtos {
       "\030\n \001(\tH\000\210\001\001B\007\n\005_json\"t\n\017MessageResponse\022" +
       "\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\014\n\004info\030\003 " +
       "\001(\t\022\016\n\006expose\030\004 \001(\r\022\021\n\tlastBlock\030\005 \001(\010\022\022" +
-      "\n\nblockIndex\030\006 \001(\007\"W\n\023MessageNotificatio" +
-      "n\022\017\n\007msgType\030\001 \001(\r\022\016\n\006sender\030\002 \001(\014\022\014\n\004js" +
-      "on\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(\t\"\207\003\n\007Message\022" +
-      "\027\n\004type\030\001 \001(\0162\t.HeadType\022\020\n\010sequence\030\002 \001" +
-      "(\004\022\021\n\tsessionId\030\003 \001(\t\022(\n\014loginRequest\030\004 " +
-      "\001(\0132\r.LoginRequestH\000\210\001\001\022*\n\rloginResponse" +
-      "\030\005 \001(\0132\016.LoginResponseH\001\210\001\001\022,\n\016messageRe" +
-      "quest\030\006 \001(\0132\017.MessageRequestH\002\210\001\001\022.\n\017mes" +
-      "sageResponse\030\007 \001(\0132\020.MessageResponseH\003\210\001" +
-      "\001\022/\n\014notification\030\010 \001(\0132\024.MessageNotific" +
-      "ationH\004\210\001\001B\017\n\r_loginRequestB\020\n\016_loginRes" +
-      "ponseB\021\n\017_messageRequestB\022\n\020_messageResp" +
-      "onseB\017\n\r_notification*\316\001\n\010HeadType\022\021\n\rLO" +
-      "GIN_REQUEST\020\000\022\022\n\016LOGIN_RESPONSE\020\001\022\022\n\016LOG" +
-      "OUT_REQUEST\020\002\022\023\n\017LOGOUT_RESPONSE\020\003\022\025\n\021KE" +
-      "EPALIVE_REQUEST\020\004\022\026\n\022KEEPALIVE_RESPONSE\020" +
-      "\005\022\023\n\017MESSAGE_REQUEST\020\006\022\024\n\020MESSAGE_RESPON" +
-      "SE\020\007\022\030\n\024MESSAGE_NOTIFICATION\020\010B\037\n\016cn.ken" +
-      ".im.beanB\rMessageProtosb\006proto3"
+      "\n\nblockIndex\030\006 \001(\007\":\n\020MessageHeartBeat\022\013" +
+      "\n\003seq\030\001 \001(\r\022\013\n\003uid\030\002 \001(\t\022\014\n\004json\030\003 \001(\t\"W" +
+      "\n\023MessageNotification\022\017\n\007msgType\030\001 \001(\r\022\016" +
+      "\n\006sender\030\002 \001(\014\022\014\n\004json\030\003 \001(\t\022\021\n\ttimestam" +
+      "p\030\004 \001(\t\"\207\003\n\007Message\022\027\n\004type\030\001 \001(\0162\t.Head" +
+      "Type\022\020\n\010sequence\030\002 \001(\004\022\021\n\tsessionId\030\003 \001(" +
+      "\t\022(\n\014loginRequest\030\004 \001(\0132\r.LoginRequestH\000" +
+      "\210\001\001\022*\n\rloginResponse\030\005 \001(\0132\016.LoginRespon" +
+      "seH\001\210\001\001\022,\n\016messageRequest\030\006 \001(\0132\017.Messag" +
+      "eRequestH\002\210\001\001\022.\n\017messageResponse\030\007 \001(\0132\020" +
+      ".MessageResponseH\003\210\001\001\022/\n\014notification\030\010 " +
+      "\001(\0132\024.MessageNotificationH\004\210\001\001B\017\n\r_login" +
+      "RequestB\020\n\016_loginResponseB\021\n\017_messageReq" +
+      "uestB\022\n\020_messageResponseB\017\n\r_notificatio" +
+      "n*\257\001\n\010HeadType\022\021\n\rLOGIN_REQUEST\020\000\022\022\n\016LOG" +
+      "IN_RESPONSE\020\001\022\022\n\016LOGOUT_REQUEST\020\002\022\023\n\017LOG" +
+      "OUT_RESPONSE\020\003\022\016\n\nHEART_BEAT\020\004\022\023\n\017MESSAG" +
+      "E_REQUEST\020\006\022\024\n\020MESSAGE_RESPONSE\020\007\022\030\n\024MES" +
+      "SAGE_NOTIFICATION\020\010B\037\n\016cn.ken.im.beanB\rM" +
+      "essageProtosb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8370,14 +9157,20 @@ public final class MessageProtos {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MessageResponse_descriptor,
         new java.lang.String[] { "Result", "Code", "Info", "Expose", "LastBlock", "BlockIndex", });
-    internal_static_MessageNotification_descriptor =
+    internal_static_MessageHeartBeat_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_MessageHeartBeat_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MessageHeartBeat_descriptor,
+        new java.lang.String[] { "Seq", "Uid", "Json", });
+    internal_static_MessageNotification_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_MessageNotification_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MessageNotification_descriptor,
         new java.lang.String[] { "MsgType", "Sender", "Json", "Timestamp", });
     internal_static_Message_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Message_descriptor,
