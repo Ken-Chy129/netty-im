@@ -3,6 +3,7 @@ package cn.ken.im.bean;
 import cn.ken.im.common.util.Snowflake;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.AttributeKey;
 import lombok.Data;
 
 /**
@@ -15,6 +16,8 @@ import lombok.Data;
  */
 @Data
 public class ClientSession {
+
+    public static final AttributeKey<ClientSession> CLIENT_SESSION = AttributeKey.valueOf("CLIENT_SESSION");
     
     private String sessionId = String.valueOf(Snowflake.nextId());
     
