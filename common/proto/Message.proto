@@ -81,6 +81,7 @@ message Message {
   optional LoginResponse loginResponse = 5;
   optional MessageRequest messageRequest = 6;
   optional MessageResponse messageResponse = 7;
-  optional MessageNotification notification = 8;
+  optional MessageHeartBeat messageHeartBeat = 8;
+  optional MessageNotification notification = 9;
 }
 // sequence 消息系列号主要用于Request和Response，Response的值必须和Request相同，使得发送端可以进行事务匹配处理

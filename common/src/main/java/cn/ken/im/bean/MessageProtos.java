@@ -7298,17 +7298,32 @@ public final class MessageProtos {
     cn.ken.im.bean.MessageProtos.MessageResponseOrBuilder getMessageResponseOrBuilder();
 
     /**
-     * <code>optional .MessageNotification notification = 8;</code>
+     * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+     * @return Whether the messageHeartBeat field is set.
+     */
+    boolean hasMessageHeartBeat();
+    /**
+     * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+     * @return The messageHeartBeat.
+     */
+    cn.ken.im.bean.MessageProtos.MessageHeartBeat getMessageHeartBeat();
+    /**
+     * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+     */
+    cn.ken.im.bean.MessageProtos.MessageHeartBeatOrBuilder getMessageHeartBeatOrBuilder();
+
+    /**
+     * <code>optional .MessageNotification notification = 9;</code>
      * @return Whether the notification field is set.
      */
     boolean hasNotification();
     /**
-     * <code>optional .MessageNotification notification = 8;</code>
+     * <code>optional .MessageNotification notification = 9;</code>
      * @return The notification.
      */
     cn.ken.im.bean.MessageProtos.MessageNotification getNotification();
     /**
-     * <code>optional .MessageNotification notification = 8;</code>
+     * <code>optional .MessageNotification notification = 9;</code>
      */
     cn.ken.im.bean.MessageProtos.MessageNotificationOrBuilder getNotificationOrBuilder();
   }
@@ -7435,8 +7450,21 @@ public final class MessageProtos {
               break;
             }
             case 66: {
-              cn.ken.im.bean.MessageProtos.MessageNotification.Builder subBuilder = null;
+              cn.ken.im.bean.MessageProtos.MessageHeartBeat.Builder subBuilder = null;
               if (((bitField0_ & 0x00000010) != 0)) {
+                subBuilder = messageHeartBeat_.toBuilder();
+              }
+              messageHeartBeat_ = input.readMessage(cn.ken.im.bean.MessageProtos.MessageHeartBeat.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(messageHeartBeat_);
+                messageHeartBeat_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            case 74: {
+              cn.ken.im.bean.MessageProtos.MessageNotification.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) != 0)) {
                 subBuilder = notification_.toBuilder();
               }
               notification_ = input.readMessage(cn.ken.im.bean.MessageProtos.MessageNotification.parser(), extensionRegistry);
@@ -7444,7 +7472,7 @@ public final class MessageProtos {
                 subBuilder.mergeFrom(notification_);
                 notification_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000020;
               break;
             }
             default: {
@@ -7666,18 +7694,44 @@ public final class MessageProtos {
       return messageResponse_ == null ? cn.ken.im.bean.MessageProtos.MessageResponse.getDefaultInstance() : messageResponse_;
     }
 
-    public static final int NOTIFICATION_FIELD_NUMBER = 8;
+    public static final int MESSAGEHEARTBEAT_FIELD_NUMBER = 8;
+    private cn.ken.im.bean.MessageProtos.MessageHeartBeat messageHeartBeat_;
+    /**
+     * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+     * @return Whether the messageHeartBeat field is set.
+     */
+    @java.lang.Override
+    public boolean hasMessageHeartBeat() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+     * @return The messageHeartBeat.
+     */
+    @java.lang.Override
+    public cn.ken.im.bean.MessageProtos.MessageHeartBeat getMessageHeartBeat() {
+      return messageHeartBeat_ == null ? cn.ken.im.bean.MessageProtos.MessageHeartBeat.getDefaultInstance() : messageHeartBeat_;
+    }
+    /**
+     * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+     */
+    @java.lang.Override
+    public cn.ken.im.bean.MessageProtos.MessageHeartBeatOrBuilder getMessageHeartBeatOrBuilder() {
+      return messageHeartBeat_ == null ? cn.ken.im.bean.MessageProtos.MessageHeartBeat.getDefaultInstance() : messageHeartBeat_;
+    }
+
+    public static final int NOTIFICATION_FIELD_NUMBER = 9;
     private cn.ken.im.bean.MessageProtos.MessageNotification notification_;
     /**
-     * <code>optional .MessageNotification notification = 8;</code>
+     * <code>optional .MessageNotification notification = 9;</code>
      * @return Whether the notification field is set.
      */
     @java.lang.Override
     public boolean hasNotification() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
-     * <code>optional .MessageNotification notification = 8;</code>
+     * <code>optional .MessageNotification notification = 9;</code>
      * @return The notification.
      */
     @java.lang.Override
@@ -7685,7 +7739,7 @@ public final class MessageProtos {
       return notification_ == null ? cn.ken.im.bean.MessageProtos.MessageNotification.getDefaultInstance() : notification_;
     }
     /**
-     * <code>optional .MessageNotification notification = 8;</code>
+     * <code>optional .MessageNotification notification = 9;</code>
      */
     @java.lang.Override
     public cn.ken.im.bean.MessageProtos.MessageNotificationOrBuilder getNotificationOrBuilder() {
@@ -7728,7 +7782,10 @@ public final class MessageProtos {
         output.writeMessage(7, getMessageResponse());
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeMessage(8, getNotification());
+        output.writeMessage(8, getMessageHeartBeat());
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeMessage(9, getNotification());
       }
       unknownFields.writeTo(output);
     }
@@ -7768,7 +7825,11 @@ public final class MessageProtos {
       }
       if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, getNotification());
+          .computeMessageSize(8, getMessageHeartBeat());
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getNotification());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7810,6 +7871,11 @@ public final class MessageProtos {
         if (!getMessageResponse()
             .equals(other.getMessageResponse())) return false;
       }
+      if (hasMessageHeartBeat() != other.hasMessageHeartBeat()) return false;
+      if (hasMessageHeartBeat()) {
+        if (!getMessageHeartBeat()
+            .equals(other.getMessageHeartBeat())) return false;
+      }
       if (hasNotification() != other.hasNotification()) return false;
       if (hasNotification()) {
         if (!getNotification()
@@ -7848,6 +7914,10 @@ public final class MessageProtos {
       if (hasMessageResponse()) {
         hash = (37 * hash) + MESSAGERESPONSE_FIELD_NUMBER;
         hash = (53 * hash) + getMessageResponse().hashCode();
+      }
+      if (hasMessageHeartBeat()) {
+        hash = (37 * hash) + MESSAGEHEARTBEAT_FIELD_NUMBER;
+        hash = (53 * hash) + getMessageHeartBeat().hashCode();
       }
       if (hasNotification()) {
         hash = (37 * hash) + NOTIFICATION_FIELD_NUMBER;
@@ -7990,6 +8060,7 @@ public final class MessageProtos {
           getLoginResponseFieldBuilder();
           getMessageRequestFieldBuilder();
           getMessageResponseFieldBuilder();
+          getMessageHeartBeatFieldBuilder();
           getNotificationFieldBuilder();
         }
       }
@@ -8026,12 +8097,18 @@ public final class MessageProtos {
           messageResponseBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (messageHeartBeatBuilder_ == null) {
+          messageHeartBeat_ = null;
+        } else {
+          messageHeartBeatBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
         if (notificationBuilder_ == null) {
           notification_ = null;
         } else {
           notificationBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -8096,12 +8173,20 @@ public final class MessageProtos {
           to_bitField0_ |= 0x00000008;
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
+          if (messageHeartBeatBuilder_ == null) {
+            result.messageHeartBeat_ = messageHeartBeat_;
+          } else {
+            result.messageHeartBeat_ = messageHeartBeatBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
           if (notificationBuilder_ == null) {
             result.notification_ = notification_;
           } else {
             result.notification_ = notificationBuilder_.build();
           }
-          to_bitField0_ |= 0x00000010;
+          to_bitField0_ |= 0x00000020;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -8173,6 +8258,9 @@ public final class MessageProtos {
         }
         if (other.hasMessageResponse()) {
           mergeMessageResponse(other.getMessageResponse());
+        }
+        if (other.hasMessageHeartBeat()) {
+          mergeMessageHeartBeat(other.getMessageHeartBeat());
         }
         if (other.hasNotification()) {
           mergeNotification(other.getNotification());
@@ -8880,18 +8968,138 @@ public final class MessageProtos {
         return messageResponseBuilder_;
       }
 
+      private cn.ken.im.bean.MessageProtos.MessageHeartBeat messageHeartBeat_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.ken.im.bean.MessageProtos.MessageHeartBeat, cn.ken.im.bean.MessageProtos.MessageHeartBeat.Builder, cn.ken.im.bean.MessageProtos.MessageHeartBeatOrBuilder> messageHeartBeatBuilder_;
+      /**
+       * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+       * @return Whether the messageHeartBeat field is set.
+       */
+      public boolean hasMessageHeartBeat() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+       * @return The messageHeartBeat.
+       */
+      public cn.ken.im.bean.MessageProtos.MessageHeartBeat getMessageHeartBeat() {
+        if (messageHeartBeatBuilder_ == null) {
+          return messageHeartBeat_ == null ? cn.ken.im.bean.MessageProtos.MessageHeartBeat.getDefaultInstance() : messageHeartBeat_;
+        } else {
+          return messageHeartBeatBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+       */
+      public Builder setMessageHeartBeat(cn.ken.im.bean.MessageProtos.MessageHeartBeat value) {
+        if (messageHeartBeatBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          messageHeartBeat_ = value;
+          onChanged();
+        } else {
+          messageHeartBeatBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+       */
+      public Builder setMessageHeartBeat(
+          cn.ken.im.bean.MessageProtos.MessageHeartBeat.Builder builderForValue) {
+        if (messageHeartBeatBuilder_ == null) {
+          messageHeartBeat_ = builderForValue.build();
+          onChanged();
+        } else {
+          messageHeartBeatBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+       */
+      public Builder mergeMessageHeartBeat(cn.ken.im.bean.MessageProtos.MessageHeartBeat value) {
+        if (messageHeartBeatBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) != 0) &&
+              messageHeartBeat_ != null &&
+              messageHeartBeat_ != cn.ken.im.bean.MessageProtos.MessageHeartBeat.getDefaultInstance()) {
+            messageHeartBeat_ =
+              cn.ken.im.bean.MessageProtos.MessageHeartBeat.newBuilder(messageHeartBeat_).mergeFrom(value).buildPartial();
+          } else {
+            messageHeartBeat_ = value;
+          }
+          onChanged();
+        } else {
+          messageHeartBeatBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+       */
+      public Builder clearMessageHeartBeat() {
+        if (messageHeartBeatBuilder_ == null) {
+          messageHeartBeat_ = null;
+          onChanged();
+        } else {
+          messageHeartBeatBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+       */
+      public cn.ken.im.bean.MessageProtos.MessageHeartBeat.Builder getMessageHeartBeatBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getMessageHeartBeatFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+       */
+      public cn.ken.im.bean.MessageProtos.MessageHeartBeatOrBuilder getMessageHeartBeatOrBuilder() {
+        if (messageHeartBeatBuilder_ != null) {
+          return messageHeartBeatBuilder_.getMessageOrBuilder();
+        } else {
+          return messageHeartBeat_ == null ?
+              cn.ken.im.bean.MessageProtos.MessageHeartBeat.getDefaultInstance() : messageHeartBeat_;
+        }
+      }
+      /**
+       * <code>optional .MessageHeartBeat messageHeartBeat = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.ken.im.bean.MessageProtos.MessageHeartBeat, cn.ken.im.bean.MessageProtos.MessageHeartBeat.Builder, cn.ken.im.bean.MessageProtos.MessageHeartBeatOrBuilder> 
+          getMessageHeartBeatFieldBuilder() {
+        if (messageHeartBeatBuilder_ == null) {
+          messageHeartBeatBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              cn.ken.im.bean.MessageProtos.MessageHeartBeat, cn.ken.im.bean.MessageProtos.MessageHeartBeat.Builder, cn.ken.im.bean.MessageProtos.MessageHeartBeatOrBuilder>(
+                  getMessageHeartBeat(),
+                  getParentForChildren(),
+                  isClean());
+          messageHeartBeat_ = null;
+        }
+        return messageHeartBeatBuilder_;
+      }
+
       private cn.ken.im.bean.MessageProtos.MessageNotification notification_;
       private com.google.protobuf.SingleFieldBuilderV3<
           cn.ken.im.bean.MessageProtos.MessageNotification, cn.ken.im.bean.MessageProtos.MessageNotification.Builder, cn.ken.im.bean.MessageProtos.MessageNotificationOrBuilder> notificationBuilder_;
       /**
-       * <code>optional .MessageNotification notification = 8;</code>
+       * <code>optional .MessageNotification notification = 9;</code>
        * @return Whether the notification field is set.
        */
       public boolean hasNotification() {
-        return ((bitField0_ & 0x00000010) != 0);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
-       * <code>optional .MessageNotification notification = 8;</code>
+       * <code>optional .MessageNotification notification = 9;</code>
        * @return The notification.
        */
       public cn.ken.im.bean.MessageProtos.MessageNotification getNotification() {
@@ -8902,7 +9110,7 @@ public final class MessageProtos {
         }
       }
       /**
-       * <code>optional .MessageNotification notification = 8;</code>
+       * <code>optional .MessageNotification notification = 9;</code>
        */
       public Builder setNotification(cn.ken.im.bean.MessageProtos.MessageNotification value) {
         if (notificationBuilder_ == null) {
@@ -8914,11 +9122,11 @@ public final class MessageProtos {
         } else {
           notificationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
-       * <code>optional .MessageNotification notification = 8;</code>
+       * <code>optional .MessageNotification notification = 9;</code>
        */
       public Builder setNotification(
           cn.ken.im.bean.MessageProtos.MessageNotification.Builder builderForValue) {
@@ -8928,15 +9136,15 @@ public final class MessageProtos {
         } else {
           notificationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
-       * <code>optional .MessageNotification notification = 8;</code>
+       * <code>optional .MessageNotification notification = 9;</code>
        */
       public Builder mergeNotification(cn.ken.im.bean.MessageProtos.MessageNotification value) {
         if (notificationBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) != 0) &&
+          if (((bitField0_ & 0x00000020) != 0) &&
               notification_ != null &&
               notification_ != cn.ken.im.bean.MessageProtos.MessageNotification.getDefaultInstance()) {
             notification_ =
@@ -8948,11 +9156,11 @@ public final class MessageProtos {
         } else {
           notificationBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
-       * <code>optional .MessageNotification notification = 8;</code>
+       * <code>optional .MessageNotification notification = 9;</code>
        */
       public Builder clearNotification() {
         if (notificationBuilder_ == null) {
@@ -8961,19 +9169,19 @@ public final class MessageProtos {
         } else {
           notificationBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
       /**
-       * <code>optional .MessageNotification notification = 8;</code>
+       * <code>optional .MessageNotification notification = 9;</code>
        */
       public cn.ken.im.bean.MessageProtos.MessageNotification.Builder getNotificationBuilder() {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
         return getNotificationFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .MessageNotification notification = 8;</code>
+       * <code>optional .MessageNotification notification = 9;</code>
        */
       public cn.ken.im.bean.MessageProtos.MessageNotificationOrBuilder getNotificationOrBuilder() {
         if (notificationBuilder_ != null) {
@@ -8984,7 +9192,7 @@ public final class MessageProtos {
         }
       }
       /**
-       * <code>optional .MessageNotification notification = 8;</code>
+       * <code>optional .MessageNotification notification = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           cn.ken.im.bean.MessageProtos.MessageNotification, cn.ken.im.bean.MessageProtos.MessageNotification.Builder, cn.ken.im.bean.MessageProtos.MessageNotificationOrBuilder> 
@@ -9112,22 +9320,24 @@ public final class MessageProtos {
       "\n\003seq\030\001 \001(\r\022\013\n\003uid\030\002 \001(\t\022\014\n\004json\030\003 \001(\t\"W" +
       "\n\023MessageNotification\022\017\n\007msgType\030\001 \001(\r\022\016" +
       "\n\006sender\030\002 \001(\014\022\014\n\004json\030\003 \001(\t\022\021\n\ttimestam" +
-      "p\030\004 \001(\t\"\207\003\n\007Message\022\027\n\004type\030\001 \001(\0162\t.Head" +
+      "p\030\004 \001(\t\"\316\003\n\007Message\022\027\n\004type\030\001 \001(\0162\t.Head" +
       "Type\022\020\n\010sequence\030\002 \001(\004\022\021\n\tsessionId\030\003 \001(" +
       "\t\022(\n\014loginRequest\030\004 \001(\0132\r.LoginRequestH\000" +
       "\210\001\001\022*\n\rloginResponse\030\005 \001(\0132\016.LoginRespon" +
       "seH\001\210\001\001\022,\n\016messageRequest\030\006 \001(\0132\017.Messag" +
       "eRequestH\002\210\001\001\022.\n\017messageResponse\030\007 \001(\0132\020" +
-      ".MessageResponseH\003\210\001\001\022/\n\014notification\030\010 " +
-      "\001(\0132\024.MessageNotificationH\004\210\001\001B\017\n\r_login" +
-      "RequestB\020\n\016_loginResponseB\021\n\017_messageReq" +
-      "uestB\022\n\020_messageResponseB\017\n\r_notificatio" +
-      "n*\257\001\n\010HeadType\022\021\n\rLOGIN_REQUEST\020\000\022\022\n\016LOG" +
-      "IN_RESPONSE\020\001\022\022\n\016LOGOUT_REQUEST\020\002\022\023\n\017LOG" +
-      "OUT_RESPONSE\020\003\022\016\n\nHEART_BEAT\020\004\022\023\n\017MESSAG" +
-      "E_REQUEST\020\006\022\024\n\020MESSAGE_RESPONSE\020\007\022\030\n\024MES" +
-      "SAGE_NOTIFICATION\020\010B\037\n\016cn.ken.im.beanB\rM" +
-      "essageProtosb\006proto3"
+      ".MessageResponseH\003\210\001\001\0220\n\020messageHeartBea" +
+      "t\030\010 \001(\0132\021.MessageHeartBeatH\004\210\001\001\022/\n\014notif" +
+      "ication\030\t \001(\0132\024.MessageNotificationH\005\210\001\001" +
+      "B\017\n\r_loginRequestB\020\n\016_loginResponseB\021\n\017_" +
+      "messageRequestB\022\n\020_messageResponseB\023\n\021_m" +
+      "essageHeartBeatB\017\n\r_notification*\257\001\n\010Hea" +
+      "dType\022\021\n\rLOGIN_REQUEST\020\000\022\022\n\016LOGIN_RESPON" +
+      "SE\020\001\022\022\n\016LOGOUT_REQUEST\020\002\022\023\n\017LOGOUT_RESPO" +
+      "NSE\020\003\022\016\n\nHEART_BEAT\020\004\022\023\n\017MESSAGE_REQUEST" +
+      "\020\006\022\024\n\020MESSAGE_RESPONSE\020\007\022\030\n\024MESSAGE_NOTI" +
+      "FICATION\020\010B\037\n\016cn.ken.im.beanB\rMessagePro" +
+      "tosb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9174,7 +9384,7 @@ public final class MessageProtos {
     internal_static_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Message_descriptor,
-        new java.lang.String[] { "Type", "Sequence", "SessionId", "LoginRequest", "LoginResponse", "MessageRequest", "MessageResponse", "Notification", "LoginRequest", "LoginResponse", "MessageRequest", "MessageResponse", "Notification", });
+        new java.lang.String[] { "Type", "Sequence", "SessionId", "LoginRequest", "LoginResponse", "MessageRequest", "MessageResponse", "MessageHeartBeat", "Notification", "LoginRequest", "LoginResponse", "MessageRequest", "MessageResponse", "MessageHeartBeat", "Notification", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
